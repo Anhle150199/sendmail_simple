@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SendEmailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::name('form.')->group(function(){
+    Route::get('/', [SendEmailController::class, 'index'])->name('index');
+    Route::post('/send', [SendEmailController::class, 'sendMail'])->name('send');
+
 });
