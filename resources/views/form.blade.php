@@ -31,7 +31,6 @@
             <!-- Register Form -->
             <div class="register-form my-5">
                 <div id="notify"></div>
-
                     <form method="POST" action="/send" id="email-form">
                     @csrf
                     <div class="mb-3">

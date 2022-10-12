@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SendEmailRequest;
 use App\Mail\NotifyEmail;
-
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -14,7 +14,7 @@ class SendEmailController extends Controller
     {
         return view('form');
     }
-    public function sendMail(Request $request)
+    public function sendMail(SendEmailRequest $request)
     {
         try {
             $mailable = new NotifyEmail($request->subject, $request->content);
